@@ -1,0 +1,51 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'Carte_I2C.pdsprj'.
+CADCAM generated at 15:37:22 on mardi 29 novembre 2022.
+
+File List
+---------
+Top Copper              : Carte_I2C - CADCAM Top Copper.GBR
+Bottom Copper           : Carte_I2C - CADCAM Bottom Copper.GBR
+Top Silk Screen         : Carte_I2C - CADCAM Top Silk Screen.GBR
+Top Solder Resist       : Carte_I2C - CADCAM Top Solder Resist.GBR
+Bottom Solder Resist    : Carte_I2C - CADCAM Bottom Solder Resist.GBR
+Mechanical 1            : Carte_I2C - CADCAM Mechanical 1.GBR
+Top Assembly            : Carte_I2C - CADCAM Top Assembly.GBR
+Drill, Plated, 1-16     : Carte_I2C - CADCAM Drill TOP-BOT Plated.GBR
+Netlist                 : Carte_I2C - CADCAM Netlist.IPC
+
+Photoplotter Setup
+------------------
+Format: X2, ASCII, 4.3, metric, absolute, eob=*, LZO
+Bounds: -45.5mm 12.1mm -23.3mm 38.817mm
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer, I=Index
+
+D10	CIRCLE  D=0.4mm                                                           DRAW  Conductor
+D11	CIRCLE  D=1mm                                                             FLASH ViaPad
+D12	CIRCLE  D=0.305mm                                                         DRAW  Conductor
+D13	SQUARE  S=2.032mm                                                         FLASH ComponentPad
+D14	CIRCLE  D=0.203mm                                                         DRAW  NonMaterial
+D15	CIRCLE  D=0.203mm                                                         DRAW  Profile
+D16	CIRCLE  D=0.203mm                                                         DRAW  Material
+D17	CIRCLE  D=1.406mm                                                         FLASH Material
+D18	PPAD    W=2.286mm             H=2.286mm             I=0                   FLASH Material
+D19	PPAD    W=2.286mm             H=2.286mm             I=1                   FLASH Material
+D70	CIRCLE  D=0.813mm                                                         DRAW  Material
+D71	CIRCLE  D=0.178mm                                                         DRAW  Material
+D20	CIRCLE  D=0.6mm                                                           FLASH ViaDrill
+D21	CIRCLE  D=1.016mm                                                         FLASH ComponentDrill
+
+Layer Stackup
+-------------
+Top Solder Resist        : 0.01mm     Resist
+Top Copper               : 0.036mm    Copper
+Core                     : 1.483mm    FR4
+Bottom Copper            : 0.036mm    Copper
+Bottom Solder Resist     : 0.01mm     Resist
+
+
+[END OF FILE]
