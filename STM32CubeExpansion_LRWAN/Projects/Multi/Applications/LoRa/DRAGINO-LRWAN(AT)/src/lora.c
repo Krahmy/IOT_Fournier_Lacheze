@@ -89,6 +89,7 @@ uint16_t fire_frequcy=0;
 uint32_t Automatic_join_network[1]={0x11};
 uint8_t mode;
 float gain_hc2a;
+float offset_hc2a;
 uint8_t decrypt_flag=0;
 uint8_t inmode,inmode2,inmode3;
 bool down_check=0;

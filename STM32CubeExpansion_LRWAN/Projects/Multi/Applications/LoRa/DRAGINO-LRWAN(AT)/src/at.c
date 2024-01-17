@@ -92,6 +92,7 @@ extern uint32_t LoRaMacState;
 extern uint32_t APP_TX_DUTYCYCLE;
 extern uint8_t mode;
 extern float gain_hc2a;
+extern float offset_hc2a;
 extern uint8_t inmode,inmode2,inmode3;
 extern float GapValue;
 extern void Get_Maopi(void);
@@ -2335,7 +2336,8 @@ ATEerror_t at_offsethc2a_get(const char *param)
 
 ATEerror_t at_offsethc2a_set(const char *param)
 {
-  sensor_data.hc2a_t.offset = atof(param);
+	offset_hc2a= atof(param);
+	sensor_data.hc2a_t.offset=offset_hc2a;
   PRINTF("new offset hc2a =%.2f\r\n", sensor_data.hc2a_t.offset);
   return AT_OK;
 }

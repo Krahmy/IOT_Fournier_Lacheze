@@ -107,6 +107,7 @@ uint8_t nsensor = 4;
 
 extern uint8_t mode;
 extern float gain_hc2a;
+extern float offset_hc2a;
 extern uint8_t inmode,inmode2,inmode3;
 extern uint16_t power_time;
 extern uint32_t COUNT,COUNT2;
@@ -385,12 +386,13 @@ void BSP_sensor_Read( sensor_t *sensor_data, uint8_t message)
 		else if (mode==41)
 		{
 			read_data_hc2a(&hc2a_t);
+			sensor_data->hc2a_t.offset= offset_hc2a;
 			sensor_data->hc2a_t.gain=gain_hc2a;
 			sensor_data->hc2a_t.temp=hc2a_t.temp;
 			sensor_data->hc2a_t.hum=hc2a_t.hum;
-			float t=sensor_data->hc2a_t.temp*sensor_data->hc2a_t.gain;
+			float t=(sensor_data->hc2a_t.temp+sensor_data->hc2a_t.offset)*sensor_data->hc2a_t.gain;
 			sensor_data->hc2a_t.temp=t;
-			PPRINTF("HC2A_gain_fin:%.2f,    HC2A_temp_fin:%.2f,	HC2A_hum_fin: %.2f\r\n" ,sensor_data->hc2a_t.gain,t, sensor_data->hc2a_t.hum);
+			PPRINTF("HC2A_offset_fin:%.2f, HC2A_gain_fin:%.2f, HC2A_temp_fin:%.2f,	HC2A_hum_fin: %.2f\r\n" ,sensor_data->hc2a_t.offset,sensor_data->hc2a_t.gain,sensor_data->hc2a_t.temp, sensor_data->hc2a_t.hum);
 		}
 
 	GPIO_INPUT_IoInit();
@@ -694,7 +696,8 @@ void HYT_sInit(sensor_t *sensor_data)
 void HC2A_sInit(sensor_t *sensor_data)
 {
   gain_hc2a = 1;
-	uint8_t i;
+	offset_hc2a = 0;
+		
 		sensor_data->hc2a_t.gain = gain_hc2a;
-		sensor_data->hc2a_t.offset = 0.0;
+		sensor_data->hc2a_t.offset = offset_hc2a;
 }

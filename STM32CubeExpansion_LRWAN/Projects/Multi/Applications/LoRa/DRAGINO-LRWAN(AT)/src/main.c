@@ -873,7 +873,8 @@ else if (mode == 41)
 		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.temp * 10);
 		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.hum * 10) >> 8;
 		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.hum * 10);
-		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.gain);
+		//AppData.Buff[i++] = (int)(sensor_data.hc2a_t.gain);
+		//AppData.Buff[i++] = (int)(sensor_data.hc2a_t.offset);
 	
 	}
 
