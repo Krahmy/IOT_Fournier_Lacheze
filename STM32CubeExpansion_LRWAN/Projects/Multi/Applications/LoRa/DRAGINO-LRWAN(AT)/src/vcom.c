@@ -446,30 +446,30 @@ void hc2a_receive_data(float *tempe, float *humi,uint16_t delayvalue)
 	float k=10;
 	num=0;
 	uint32_t currentTime = TimerGetCurrentTime();
-	HAL_UART_Transmit(&UartHandle1, txdatas, 10, 0xFFFF);
+	HAL_UART_Transmit(&UartHandle1, txdatas, 10, 0xFFFF); //transmission de la commande de lecture des valeurs
 	while(UartHandle1.gState != HAL_UART_STATE_READY)
 	{
-		if(TimerGetElapsedTime(currentTime) >= 5000)
+		if(TimerGetElapsedTime(currentTime) >= 5000)//cas dépassement du temps de transmission
 		{		
 			PRINTF("\r\n depassement");
 			break;
 		}
 	}
 	flags_command=1;
-	HAL_UART_Receive_IT(&UartHandle1, (uint8_t *)aRxBuffer,1);
+	HAL_UART_Receive_IT(&UartHandle1, (uint8_t *)aRxBuffer,1); //reception de la trame de la sonde en interruption
 	HAL_Delay(delayvalue);		
 	flags_command=0;
 	for(uint8_t number=0;number<sizeof(response);number++)
 	{
-		if(begin==1)
+		if(begin==1) //on recupère la trame de la sonde dans rxdatatrame
 		{
 			rxdatatrame[datanumber++]=response[number];
-			if(datanumber==150)
+			if(datanumber==150) //si la trame depasse 150 caractère on arrete
 			{
 				begin=2;
 			}
 		}
-		else if ((response[number]==0x7b)&&(begin==0))
+		else if ((response[number]==0x7b)&&(begin==0)) //si le caractère reçus est un { alors commencer la reception de la trame dans rxdatatrame
 		{
 			rxdatatrame[datanumber]= response[number];
 			begin=1;
@@ -477,13 +477,13 @@ void hc2a_receive_data(float *tempe, float *humi,uint16_t delayvalue)
 	}
 	HAL_Delay(1000);
 	HAL_Delay(500);
-	for (uint8_t i = 0; i < 2; i++)
+	for (uint8_t i = 0; i < 2; i++) //recuperation des données utiles dans la trame
         {
             humidite = humidite + ((rxdatatrame[12 + i] - 48) * k) + ((rxdatatrame[15 + i] - 48) * (k / 100));
             temperature = temperature + ((rxdatatrame[29 + i] - 48) * k) + ((rxdatatrame[32 + i] - 48) * (k / 100));
             k = k / 10;
         }
-				*tempe=temperature;
+				*tempe=temperature; //passage par pointeurs pour envoyer les valeurs
 				*humi=humidite;
 }
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

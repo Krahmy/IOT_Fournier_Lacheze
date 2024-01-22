@@ -867,9 +867,9 @@ else if (mode == 21)
 		AppData.Buff[i++] = (int)0x54;
 
 		
-		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.temp * 10) >> 8;
+		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.temp * 10) >> 8; //temperature de la sonde
 		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.temp * 10);
-		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.hum * 10) >> 8;
+		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.hum * 10) >> 8; //humidite de la sonde
 		AppData.Buff[i++] = (int)(sensor_data.hc2a_t.hum * 10);
 		//AppData.Buff[i++] = (int)(sensor_data.hc2a_t.gain);
 		//AppData.Buff[i++] = (int)(sensor_data.hc2a_t.offset);

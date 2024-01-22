@@ -7,8 +7,8 @@ extern UART_HandleTypeDef  UartHandle1;
 
 void BSP_hc2a_init(void)
 {
-	uart41_init_uart41();
-	uart1_IoInit();
+	uart41_init_uart41(); //initialisation de la liaison uart
+	uart1_IoInit(); //initialisation des broches
 	if (HAL_UART_Init(&UartHandle1) != HAL_OK)
 	{
 		/* Initialization Error */
@@ -27,12 +27,12 @@ void read_data_hc2a(hc2a_sensor *hc2a_t)
 {
     PPRINTF("START MODE 21");
 
-    uart1_IoInit(); // Initialize UART once before the loop
+    uart1_IoInit(); // initialisation des broches de la liaison uart
 
-    hc2a_receive_data(&hc2a_t->temp, &hc2a_t->hum, 2000); // Assuming hc2a_receive_data takes pointers as arguments
+    hc2a_receive_data(&hc2a_t->temp, &hc2a_t->hum, 2000); // reception des données dans la structure hc2a
 
 
-    uart1_IoDeInit();
+    uart1_IoDeInit(); //libération des broches de la liaison uart
 }
 
   //uart4_IoDeInit();
