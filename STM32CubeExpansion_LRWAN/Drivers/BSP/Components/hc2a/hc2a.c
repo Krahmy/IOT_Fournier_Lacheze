@@ -40,10 +40,6 @@ void read_data_hc2a(hc2a_sensor *hc2a_t)
 
     hc2a_receive_data(&hc2a_t->temp, &hc2a_t->hum, 2000); // Assuming hc2a_receive_data takes pointers as arguments
 
-    //hc2a_t->temp = temperature;
-    //hc2a_t->hum = humidity;
-
-    PPRINTF("\r\n HC2A_temp: %.2f, HC2A_hum: %.2f\r\n", hc2a_t->temp, hc2a_t->hum);
 
     uart1_IoDeInit();
 }

@@ -303,7 +303,6 @@ int main( void )
 			  LORA_Join();
 			}
 		}
-		
 		if(rejoin_status==1)
 		{
 			if((( LoRaMacState & 0x00000001 ) != 0x00000001)&&(( LoRaMacState & 0x00000010 ) != 0x00000010))
@@ -317,7 +316,6 @@ int main( void )
 			  LORA_Join();
 			}
 		}
-		
 		if(joined_flags==1)
 		{
 			send_exti();
@@ -856,7 +854,7 @@ static void Send( void )
 	
 else if (mode == 41)
 	{
-		AT_PRINTF("\r\nTEMP=%.2f  HUM=%.2f \r\n",sensor_data.hc2a_t.temp,sensor_data.hc2a_t.hum );
+		AT_PRINTF("\r\nTEMPERATURE=%.2f  HUMIDITE =%.2f \r\n",sensor_data.hc2a_t.temp,sensor_data.hc2a_t.hum );
 		AppData.Buff[i++] = (batteryLevel_mV >> 8); // level of battery in mV
 		AppData.Buff[i++] = batteryLevel_mV & 0xFF;
 		

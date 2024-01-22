@@ -476,12 +476,6 @@ void hc2a_receive_data(float *tempe, float *humi,uint16_t delayvalue)
 		}
 	}
 	HAL_Delay(1000);
-	PRINTF("\r\n rxdata final=");
-	for (uint8_t k=0;k<200;k++)
-	{
-		PRINTF("%c", rxdatatrame[k]);
-	}
-	PRINTF("\r\n");
 	HAL_Delay(500);
 	for (uint8_t i = 0; i < 2; i++)
         {
@@ -491,6 +485,5 @@ void hc2a_receive_data(float *tempe, float *humi,uint16_t delayvalue)
         }
 				*tempe=temperature;
 				*humi=humidite;
-				PRINTF("\r\n T=%.2f \r\n H=%.2f", *tempe, *humi);
 }
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

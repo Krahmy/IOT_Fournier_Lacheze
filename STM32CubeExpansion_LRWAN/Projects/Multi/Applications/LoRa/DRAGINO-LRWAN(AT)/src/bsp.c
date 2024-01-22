@@ -392,7 +392,6 @@ void BSP_sensor_Read( sensor_t *sensor_data, uint8_t message)
 			sensor_data->hc2a_t.hum=hc2a_t.hum;
 			float t=(sensor_data->hc2a_t.temp+sensor_data->hc2a_t.offset)*sensor_data->hc2a_t.gain;
 			sensor_data->hc2a_t.temp=t;
-			PPRINTF("HC2A_offset_fin:%.2f, HC2A_gain_fin:%.2f, HC2A_temp_fin:%.2f,	HC2A_hum_fin: %.2f\r\n" ,sensor_data->hc2a_t.offset,sensor_data->hc2a_t.gain,sensor_data->hc2a_t.temp, sensor_data->hc2a_t.hum);
 		}
 
 	GPIO_INPUT_IoInit();
