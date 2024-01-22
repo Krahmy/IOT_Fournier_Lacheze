@@ -25,18 +25,9 @@ void BSP_hc2a_init(void)
 
 void read_data_hc2a(hc2a_sensor *hc2a_t)
 {
-    PPRINTF("START MODE 41");
-    float temperature = 0;
-    float humidity = 0;
-    uint8_t txdata[8] = {0x7b, 0x20, 0x39, 0x39, 0x52, 0x44, 0x44, 0x7d}; // Command: { 99RDD }
-    uint8_t rxdata[200];
+    PPRINTF("START MODE 21");
 
     uart1_IoInit(); // Initialize UART once before the loop
-
-    for (uint8_t i = 0; i < sizeof(txdata); i++)
-    {
-        rxdata[i] = 0x00;
-    }
 
     hc2a_receive_data(&hc2a_t->temp, &hc2a_t->hum, 2000); // Assuming hc2a_receive_data takes pointers as arguments
 

@@ -233,7 +233,7 @@ void BSP_sensor_Read( sensor_t *sensor_data, uint8_t message)
 			}
 		}
 	}
-	else if (mode == 40)
+	else if (mode == 20)
 	{
 		HAL_I2C_MspInit(&I2cHandle40);
 		
@@ -383,7 +383,7 @@ void BSP_sensor_Read( sensor_t *sensor_data, uint8_t message)
 			PPRINTF("HX711_Weight:%d g\r\n",sensor_data->Weight);
 		}
 	}
-		else if (mode==41)
+		else if (mode==21)
 		{
 			read_data_hc2a(&hc2a_t);
 			sensor_data->hc2a_t.offset= offset_hc2a;
@@ -657,14 +657,14 @@ void  BSP_sensor_Init( void  )
 			BSP_oil_float_DeInit();
 		}
 	}
-	else if (mode == 40)
+	else if (mode == 20)
 	{
 		GPIO_HYT_OUTPUT_Init();
 		HAL_I2C_MspDeInit(&I2cHandle40);
 		BSP_hyt939_Init();
 		GPIO_HYT_OUTPUT_DeInit();
 	}
-	else if (mode == 41)
+	else if (mode == 21)
 	{
 		PRINTF("DEBUT INIT \r\n");
 		//HAL_GPIO_WritePin(PWR_OUT_PORT,PWR_OUT_PIN,GPIO_PIN_RESET);//Enable 5v power supply	

@@ -828,7 +828,7 @@ static void Send( void )
 		AppData.Buff[i++] =	(uint8_t)(COUNT2); 		
 	}
 	
-	else if (mode == 40)
+	else if (mode == 20)
 	{
 		AppData.Buff[i++] = (batteryLevel_mV >> 8); // level of battery in mV
 		AppData.Buff[i++] = batteryLevel_mV & 0xFF;
@@ -852,7 +852,7 @@ static void Send( void )
 		}
 	}
 	
-else if (mode == 41)
+else if (mode == 21)
 	{
 		AT_PRINTF("\r\nTEMPERATURE=%.2f  HUMIDITE =%.2f \r\n",sensor_data.hc2a_t.temp,sensor_data.hc2a_t.hum );
 		AppData.Buff[i++] = (batteryLevel_mV >> 8); // level of battery in mV
