@@ -3,7 +3,7 @@ function decodeUplink(input) {
 	var data = {};
 	 switch (input.fPort) {
 		 case 2:
-		 if((mode!=2)&&(mode!=31)&&(mode!=21))
+		 if((mode!=2)&&(mode!=31)&&(mode!=21)&&(mode!=20))
 {
   data.BatV=(input.bytes[0]<<8 | input.bytes[1])/1000;
   data.TempC1= parseFloat(((input.bytes[2]<<24>>16 | input.bytes[3])/10).toFixed(2));
@@ -87,9 +87,10 @@ else if(mode=='21')
 	//data.Offset_HC2A=parseFloat(input.bytes[12].toFixed(1));
   
 }
-else if(mode=='30')
+else if(mode=='20')
 {
   data.Work_mode="HYT939";
+  data.BatV=(input.bytes[0]<<8 | input.bytes[1])/1000;
   //data.TempC_SHT=parseFloat(((input.bytes[7]<<24>>16 | input.bytes[8])/10).toFixed(2));
   //data.Hum_SHT=parseFloat(((input.bytes[9]<<8 | input.bytes[10])/10).toFixed(1));
   

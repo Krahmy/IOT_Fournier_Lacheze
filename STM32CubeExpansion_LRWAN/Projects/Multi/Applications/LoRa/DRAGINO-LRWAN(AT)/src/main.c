@@ -839,7 +839,7 @@ static void Send( void )
 		AppData.Buff[i++] = (int)(sensor_data.oil) >> 8; // oil float
 		AppData.Buff[i++] = (int)sensor_data.oil;
 
-		AppData.Buff[i++] = (int)0x78;
+		AppData.Buff[i++] = (int)0x50;
 
 		AppData.Buff[i++] = (int)nsensor;
 
